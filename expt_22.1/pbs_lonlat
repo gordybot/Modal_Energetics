@@ -1,0 +1,28 @@
+# /bin/sh
+#PBS -N lonlat_221
+#PBS -o lonlat_221.out
+#PBS -e lonlat_221.err
+#PBS -M gordon.stephenson@usm.edu
+#PBS -m bea
+#PBS -A ONRDC38645449 
+#PBS -S /bin/bash
+#PBS -l walltime="00:30:00"
+#PBS -q debug
+#PBS -l select=1:ncpus=1
+# Change to the specified directory
+cd $WORKDIR/hycom/GLBc0.04/expt_22.1
+#
+# Execute the serial executable on 1 core
+#aprun -n 1 ./test4_evec.x  < ./modal_decomp_051_1_1.in > ./output_test4_051.out
+#aprun -n 1 ./vm_hfit_uvP_v2_j4_6.x < ./modal_decomp_051_1_1.in > ./output_vm_hfit_uvP_j4_6.out
+#aprun -n 1 ./charmfit2d.x  < ./chfit_051_01_01.in > ./chfit_051_01_01.out
+#aprun -n 1 ./charmfit_pres.x  < ./chfit_051_01_01.in > ./chfit_051_01_01.out
+#aprun -n 1 ./combine_P_to_APE221.x  < ./chfit_221_1_1.in > ./ape_221.out
+#aprun -n 1 ./APE_from_hfit_vmode_221.x < ./chfit_221_1_1.in > ./ape_221.out
+#aprun -n 1 ./APE_221_jan23.x < ./chfit_221_1_1.in > ape_221_jan23.out
+#aprun -n 1 ./flx_diverg_221.x < everytile.in > flx_diverg_221.out
+#aprun -n 1 ./combineP_may.x < everytile.in > lonlat_221.out
+#aprun -n 1 ./combine_Pbot.x < everytile.in > combine_Pbot_221.out
+#aprun -n 1 ./hycom_lonlat2ij 40 0 > test_lonlat.out
+aprun -n 1 ./save_pgrid.x < everytile.in > pgrid.out
+# End of batch job

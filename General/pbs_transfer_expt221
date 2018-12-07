@@ -1,0 +1,15 @@
+################################!/bin/csh
+#PBS -N copy240
+#PBS -o make_copy.out   
+#PBS -A ONRDC38645449
+#PBS -lwalltime=24:00:00
+#PBS -q transfer
+#PBS -l select=1:ncpus=1 
+#PBS -M gordon.stephenson@usm.edu
+#PBS -m abe
+#
+#copy files from shepard to cwfs
+#
+#cp -npr /p/work1/grstephe/hycom /gpfs/cwfs/grstephe/hycom
+cp -npr /gpfs/cwfs/mbui/hycom/GLBc0.04/expt_22.1/data/tarv_116q/221_archv.2016_24*.[ab] /p/work1/grstephe/hycom/GLBc0.04/expt_22.1/data/input3z
+#################################

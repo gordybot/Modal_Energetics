@@ -1,0 +1,15 @@
+#! /bin/sh
+#PBS -N EIGj6_1
+#PBS -o EIGj6_1.out
+#PBS -e EIGj6_1.err
+#PBS -M gordon.stephenson@usm.edu
+#PBS -m bea
+#PBS -A ONRDC38645449
+#PBS -S /bin/bash
+#PBS -l walltime=09:00:00
+#PBS -q standard
+#PBS -l select=1:ncpus=1
+# Change to the specified directory
+cd /p/work1/grstephe/hycom/GLBc0.04/expt_22.1
+# Execute the serial executable on 1 core
+aprun -n 1 ./NEIG_c004_v1.x  < ./neig_221_6_1.in > ./neig_221_6_1.out

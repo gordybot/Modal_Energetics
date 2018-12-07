@@ -1,0 +1,22 @@
+# /bin/sh
+#PBS -N pmodes_apr 
+#PBS -o pmodes_apr.out
+#PBS -e pmodes_apr.err
+#PBS -M gordon.stephenson@usm.edu
+#PBS -m bea
+#PBS -A ONRDC38645449 
+#PBS -S /bin/bash
+#PBS -l walltime="24:00:00"
+#PBS -q standard
+#PBS -l select=1:ncpus=1
+# Change to the specified directory
+cd $WORKDIR/hycom/GLBc0.04/expt_22.1
+#
+# Execute the serial executable on 1 core
+#aprun -n 1 ./test4_evec.x  < ./modal_decomp_051_1_1.in > ./output_test4_051.out
+#aprun -n 1 ./vm_hfit_uvP_v2_j4_6.x < ./modal_decomp_051_1_1.in > ./output_vm_hfit_uvP_j4_6.out
+#aprun -n 1 ./charmfit2d.x  < ./chfit_051_01_01.in > ./chfit_051_01_01.out
+#aprun -n 1 ./charmfit_pres.x  < ./chfit_051_01_01.in > ./chfit_051_01_01.out
+aprun -n 1 ./pmodes_apr.x  < ./sometiles.in > ./pmodes_apr.out
+
+# End of batch job

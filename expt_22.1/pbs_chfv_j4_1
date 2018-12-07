@@ -1,0 +1,15 @@
+#! /bin/sh
+#PBS -N chfit_visoj4_1
+#PBS -o chfit_visoj4_1.out
+#PBS -e chfit_visoj4_1.err
+#PBS -M gordon.stephenson@usm.edu
+#PBS -m bea
+#PBS -A ONRDC38645449
+#PBS -S /bin/bash
+#PBS -l walltime=15:00:00
+#PBS -q standard
+#PBS -l select=1:ncpus=1
+# Change to the specified directory
+cd /p/work1/grstephe/hycom/GLBc0.04/expt_22.1
+# Execute the serial executable on 1 core
+aprun -n 1 ./charmfit_viso.x  < ./chfv_221_4_1.in > ./chfit_viso221_4_1.out
